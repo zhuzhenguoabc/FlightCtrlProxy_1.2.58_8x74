@@ -1,0 +1,25 @@
+# Copyright (c) 2015 Qualcomm Technologies, Inc.  All Rights Reserved.
+# Qualcomm Technologies Proprietary and Confidential.
+
+CC = arm-linux-gnueabihf-gcc
+CXX = arm-linux-gnueabihf-g++
+
+CFLAGS = -Wall -Wno-unused-variable -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-write-strings
+CXXFLAGS = -Wall -Wno-unused-variable -Wno-unused-but-set-parameter -Wno-unused-but-set-variable  -Wno-write-strings -std=c++0x
+
+LIB_DIR = ./lib
+INCLUDES	= -I ./inc 												
+
+TARGET = client_demo server_demo
+
+all: $(TARGET)
+
+% : %.cpp 
+	$(CXX) $(CXXFLAGS) $< -o $@ $(INCLUDES) -lpthread   $(LIBS)	
+	
+% : %.c 
+	$(CC) $(CFLAGS) $< -o $@ $(INCLUDES) -lpthread   $(LIBS)
+
+clean:
+	rm -f $(TARGET)
+

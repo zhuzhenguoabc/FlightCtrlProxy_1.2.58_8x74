@@ -1,0 +1,8 @@
+imu  1
+baro  1
+mag   1
+gps  1
+sonar  1
+optic_flow  1
+esc  1
+cam 1
